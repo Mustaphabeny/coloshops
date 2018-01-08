@@ -33,19 +33,19 @@
 					</div>
 					<div class="col-md-6 text-right">
 						<div class="top_nav_right">
+
+
 							<ul class="top_nav_menu">
 
 								<!--  My Account -->
-
-								
-								<li class="account">
+									<li class="account">
 									<a href="logout.php">
 										Logout...
 								
-										
 									</a>
 									
 								</li>
+						
 							</ul>
 						</div>
 					</div>
@@ -73,11 +73,11 @@
 
 								<input type="text" name="recherche" placeholder="research">
 								
-								<li><a href="../compte.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li><a href="../compte.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="#">
+									<a href="panier.php">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
+										
 									</a>
 								</li>
 							</ul>
@@ -193,23 +193,28 @@
 									<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
 								
 								<div class="product_info">
-								<h3 class="product_name">
+								<h3 class="product_name"><a href="single.php?show=<?php echo $row['nom_produit'] ?>">
 								<?php  
 								echo $row['nom_produit'] ?>
-								</h3></div>
-								<div class="roduct_price">
+								</h3></a></div>
+								<div class="product_info">
+								<div class="product_price">
+									$
 									<?php
 									echo  $row['prix_produit'];
 									?>
 								</div>
+							</div>
 								</div>	
 
 								
 								
-									<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+									<div class="red_button add_to_cart_button"><?php if ($row['quant_produit']!=0) {
+										# code...
+									 ?><a href="panier.php?action=ajout&amp;l=<?php echo $row['nom_produit']?> &amp;q=<?php echo $row['quant_produit']?> &amp; p=<?php echo $row['prix_produit'] ?>">add to cart</a></div>
 							</div>
 
-							
+							<?php }?>
 						<?php
 								}	
 								
@@ -319,7 +324,7 @@
 								echo $row['nom_produit'] ?>
 								</h3></div>
 								<div class="product_info">
-								<div class="roduct_price">
+								<div class="product_price">
 									$
 									<?php
 									echo  $row['prix_produit'];?>

@@ -1,8 +1,4 @@
-<?php
-session_start();
-include_once("connex.inc.php");
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Colo Shop</title>
@@ -74,9 +70,9 @@ include_once("connex.inc.php");
 							<ul class="navbar_user">
 								<input type="text" name="recherche" placeholder="research">
 								
-								<li><a href="compte.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li><a href="compte.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="#">
+									<a href="php/panier.php">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									
 									</a>
@@ -121,7 +117,7 @@ change your Email" >
 
 </form>
 
-<a href="php/modif_compte.php?ID=<?php echo $id;?>">dfghjkl</a>
+
 </div>
 </div>
 

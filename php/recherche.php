@@ -42,7 +42,7 @@
 							
 								<li class="account">
 
-									<a href="php/logout.php">
+									<a href="logout.php">
 										Logout...
 								
 										
@@ -75,11 +75,11 @@
 							<ul class="navbar_user">
 								<input type="text" name="recherche" placeholder="research">
 								
-								<li><a href="../compte.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<li><a href="../compte.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
-									<a href="#">
+									<a href="panier.php">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
+										
 									</a>
 								</li>
 							</ul>
@@ -121,15 +121,18 @@ if($ress){
 	$nbproduit = mysqli_num_rows($ress);
 	if ($_POST['recherche']!= NULL)	{
 		if ($nbproduit >0){
-			echo"<table border='1'>\n";
-			echo "<tr>\n";
-			echo "<td><strong>Reference</strong></td>\n";
-			echo "<td><strong>Categories</strong></td>\n";
-			echo "<td><strong>Nom</strong></td>\n";
-			echo "<td><strong>Prix</strong></td>\n";
-			echo "<td><strong>Image</strong></td>\n";
-			echo "</tr>\n";
-		
+			?>
+		<table class="table">
+					<thead>
+					  <tr >
+				    <th>Reference</th>
+				    <th>Categorie</th>
+				    <th>Nom</th>
+				    <th>Prix</th>
+				    <th>Image</th>
+				  </tr>
+				  	</thead>
+				<?php		
 			while ($produit = mysqli_fetch_array($ress)){
 			
 				echo "<tr>\n";

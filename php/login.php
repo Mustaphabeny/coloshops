@@ -7,14 +7,15 @@ if (isset($_POST['username'])&& isset($_POST['password']))
 {
 $username = $_POST['username'];
 $password = $_POST['password'];
+
 $conn = mysqli_connect('localhost', 'root', '', 'projet');
-	$query =  "SELECT * FROM utilisateurs WHERE Username = '$username' && Password = '$password' && Role = 'client' ";
+	$query =  "SELECT * FROM utilisateurs WHERE Username = '$username' AND Password = '$password' AND Role = 'client' ";
 	$resultat = mysqli_query($conn,$query);
 	
 		if (mysqli_num_rows($resultat) >0 ){
 			session_start();
 		$_SESSION['projet']='true';
-		header('Location: membre.php');
+		header("Location: membre.php?Id='$username'");
 
 	}else echo "Pseudo ou Password incorrect !";
 
@@ -23,7 +24,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'projet');
 	if (mysqli_num_rows($resultat) >0 ){
 			session_start();
 		$_SESSION['projet']='true';
-		header('Location: ../admin/admin.html');
+		header("Location: ../admin/admin.html?Id='$username'");
 
 	}else echo "Pseudo ou Password incorrect !";
 }
